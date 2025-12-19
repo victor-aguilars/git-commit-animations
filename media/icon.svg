@@ -1,27 +1,71 @@
 <svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dark background -->
-  <rect width="128" height="128" fill="#1a1a1a" rx="16"/>
+  <!-- Dark gradient background -->
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#2d2d2d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </radialGradient>
 
-  <!-- Dark band effect -->
-  <rect width="128" height="48" y="40" fill="#0a0a0a" opacity="0.9"/>
+    <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c92a2a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
 
-  <!-- Main text "YOU DIED" style -->
-  <text x="64" y="72" font-family="Georgia, serif" font-size="18" font-weight="400"
-        fill="#8B0000" text-anchor="middle" letter-spacing="1">
-    YOU DIED
-  </text>
+  <!-- Background -->
+  <rect width="128" height="128" fill="url(#bgGradient)" rx="16"/>
 
-  <!-- Glow effect -->
-  <text x="64" y="72" font-family="Georgia, serif" font-size="18" font-weight="400"
-        fill="#DC143C" text-anchor="middle" letter-spacing="1" opacity="0.3"
-        filter="blur(2px)">
-    YOU DIED
-  </text>
+  <!-- Git branch lines (simplified) -->
+  <line x1="32" y1="95" x2="64" y2="64" stroke="#4a4a4a" stroke-width="3" opacity="0.6"/>
+  <line x1="64" y1="64" x2="96" y2="33" stroke="#4a4a4a" stroke-width="3" opacity="0.6"/>
 
-  <!-- Small git icon at bottom -->
-  <circle cx="64" cy="105" r="8" fill="#8B0000" opacity="0.6"/>
-  <circle cx="54" cy="105" r="4" fill="#8B0000" opacity="0.4"/>
-  <circle cx="74" cy="105" r="4" fill="#8B0000" opacity="0.4"/>
-  <line x1="54" y1="105" x2="64" y2="105" stroke="#8B0000" stroke-width="2" opacity="0.5"/>
-  <line x1="64" y1="105" x2="74" y2="105" stroke="#8B0000" stroke-width="2" opacity="0.5"/>
+  <!-- Commit nodes -->
+  <circle cx="32" cy="95" r="6" fill="#5c7cfa" opacity="0.7"/>
+  <circle cx="96" cy="33" r="6" fill="#5c7cfa" opacity="0.7"/>
+
+  <!-- Main commit node (larger, central) -->
+  <circle cx="64" cy="64" r="16" fill="url(#nodeGradient)"/>
+  <circle cx="64" cy="64" r="12" fill="#1a1a1a" opacity="0.3"/>
+
+  <!-- Dramatic radiating lines (star burst effect) -->
+  <g opacity="0.8">
+    <!-- Top -->
+    <line x1="64" y1="64" x2="64" y2="20" stroke="#ffd43b" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Top right -->
+    <line x1="64" y1="64" x2="95" y2="33" stroke="#ffd43b" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <!-- Right -->
+    <line x1="64" y1="64" x2="108" y2="64" stroke="#ffd43b" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Bottom right -->
+    <line x1="64" y1="64" x2="95" y2="95" stroke="#ffd43b" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <!-- Bottom -->
+    <line x1="64" y1="64" x2="64" y2="108" stroke="#ffd43b" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Bottom left -->
+    <line x1="64" y1="64" x2="33" y2="95" stroke="#ffd43b" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <!-- Left -->
+    <line x1="64" y1="64" x2="20" y2="64" stroke="#ffd43b" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Top left -->
+    <line x1="64" y1="64" x2="33" y2="33" stroke="#ffd43b" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- Sparkle effects -->
+  <g fill="#ffd43b">
+    <!-- Top sparkle -->
+    <circle cx="64" cy="16" r="3" opacity="0.9"/>
+    <circle cx="64" cy="16" r="1.5" fill="#fff"/>
+
+    <!-- Right sparkle -->
+    <circle cx="112" cy="64" r="2.5" opacity="0.8"/>
+    <circle cx="112" cy="64" r="1.2" fill="#fff"/>
+
+    <!-- Bottom sparkle -->
+    <circle cx="64" cy="112" r="2.5" opacity="0.8"/>
+    <circle cx="64" cy="112" r="1.2" fill="#fff"/>
+
+    <!-- Left sparkle -->
+    <circle cx="16" cy="64" r="2.5" opacity="0.8"/>
+    <circle cx="16" cy="64" r="1.2" fill="#fff"/>
+  </g>
+
+  <!-- Glow effect on main node -->
+  <circle cx="64" cy="64" r="16" fill="#ff6b6b" opacity="0.2" filter="blur(4px)"/>
 </svg>

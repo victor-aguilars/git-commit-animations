@@ -1,4 +1,4 @@
-# Testing the Git Commit Themes Extension
+# Testing the Git Commit Animations Extension
 
 ## Quick Start
 
@@ -15,7 +15,7 @@
 
 3. **Test the animation manually**
    - In the Extension Development Host window, press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
-   - Type: "Git Commit Themes: Test Animation"
+   - Type: "Git Commit Animations: Test Animation"
    - Press Enter
    - You should see the "YOU DIED" animation!
 
@@ -56,7 +56,7 @@ Test the different settings:
 
 1. In the Extension Development Host window, go to:
    - File > Preferences > Settings (or Code > Preferences > Settings on Mac)
-   - Search for "Git Commit Themes"
+   - Search for "Git Commit Animations"
 
 2. Try changing:
    - **Enabled**: Turn the extension on/off
