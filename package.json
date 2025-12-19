@@ -26,7 +26,12 @@
           "type": "string",
           "default": "darksouls",
           "enum": [
-            "darksouls"
+            "darksouls",
+            "bonfire"
+          ],
+          "enumDescriptions": [
+            "Dark Souls - YOU DIED",
+            "Dark Souls - BONFIRE LIT"
           ],
           "description": "Select the commit animation theme"
         },

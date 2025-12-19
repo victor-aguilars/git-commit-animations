@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { AnimationManager } from './animationManager';
 import { CommitDetector } from './commitDetector';
 import { DarkSoulsTheme } from './themes/darkSouls';
+import { BonfireTheme } from './themes/bonfire';
 import { DeathScreenTheme } from './themes/themeInterface';
 
 let animationManager: AnimationManager;
@@ -13,13 +14,11 @@ export function activate(context: vscode.ExtensionContext) {
     // Initialize animation manager
     animationManager = new AnimationManager(context);
 
-    // Get the current theme
-    const theme = getTheme();
-
     // Initialize commit detector
     commitDetector = new CommitDetector(() => {
         // This callback is triggered when a commit is detected
-        animationManager.showDeathScreen(theme);
+        // Get theme dynamically so users can change it without reloading
+        animationManager.showDeathScreen(getTheme());
     });
 
     // Start watching for commits
@@ -27,7 +26,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Register test command for manual testing
     const testCommand = vscode.commands.registerCommand('gitCommitThemes.testAnimation', () => {
-        animationManager.showDeathScreen(theme);
+        // Get theme dynamically for testing
+        animationManager.showDeathScreen(getTheme());
     });
 
     context.subscriptions.push(testCommand);
@@ -46,10 +46,11 @@ function getTheme(): DeathScreenTheme {
     const config = vscode.workspace.getConfiguration('gitCommitThemes');
     const themeName = config.get<string>('theme', 'darksouls');
 
-    // For now, we only have Dark Souls theme
-    // Future: Add more themes here
     switch (themeName) {
         case 'darksouls':
+            return new DarkSoulsTheme();
+        case 'bonfire':
+            return new BonfireTheme();
         default:
             return new DarkSoulsTheme();
     }

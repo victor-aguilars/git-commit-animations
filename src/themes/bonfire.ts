@@ -1,12 +1,12 @@
 import { DeathScreenTheme } from './themeInterface';
 
-export class DarkSoulsTheme implements DeathScreenTheme {
-    name = 'darksouls';
+export class BonfireTheme implements DeathScreenTheme {
+    name = 'bonfire';
 
     getHTML(): string {
         return `
             <div class="death-screen-overlay" id="deathScreen">
-                <div class="death-text">YOU DIED</div>
+                <div class="death-text">BONFIRE LIT</div>
             </div>
         `;
     }
@@ -42,14 +42,14 @@ export class DarkSoulsTheme implements DeathScreenTheme {
                 font-family: Georgia, 'Times New Roman', serif;
                 font-size: clamp(48px, 8vw, 96px);
                 font-weight: 400;
-                color: #8B0000;
+                color: #FF8C00;
                 letter-spacing: 0.05em;
                 text-align: center;
                 opacity: 0;
                 text-shadow:
-                    0 0 10px rgba(220, 20, 60, 0.8),
-                    0 0 20px rgba(220, 20, 60, 0.6),
-                    0 0 30px rgba(220, 20, 60, 0.4);
+                    0 0 10px rgba(255, 165, 0, 0.9),
+                    0 0 20px rgba(255, 140, 0, 0.7),
+                    0 0 30px rgba(255, 120, 0, 0.5);
                 animation: fadeInText 1000ms ease-in 500ms forwards;
             }
 
