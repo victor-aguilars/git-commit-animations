@@ -10,6 +10,17 @@ A VS Code extension that displays dramatic, themed animations whenever you commi
 - **Fully Customizable**: Configure theme, text, animation duration, and enable/disable
 - **Test Command**: Manually trigger the animation for testing
 
+## Screenshots
+
+### Dark Souls - YOU DIED
+![Dark Souls Theme](media/screenshot-darksouls.png)
+
+### Bonfire - BONFIRE LIT
+![Bonfire Theme](media/screenshot-bonfire.png)
+
+### Custom Text Example
+![Custom Text](media/screenshot-custom.png)
+
 ## Installation
 
 ### From Source

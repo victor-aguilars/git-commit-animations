@@ -1,14 +1,32 @@
 {
   "name": "git-commit-themes",
   "displayName": "Git Commit Themes",
-  "description": "Display dramatic themed animations when you commit to Git",
+  "description": "Display themed animations when you commit to Git",
   "version": "0.1.0",
+  "publisher": "VAAS",
+  "icon": "media/icon.png",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "git",
+    "commit",
+    "animation",
+    "dark souls",
+    "theme",
+    "fun"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victor-aguilars/git-commit-themes"
+  },
+  "bugs": {
+    "url": "https://github.com/victor-aguilars/git-commit-themes/issues"
+  },
   "activationEvents": [
     "onStartupFinished"
   ],
