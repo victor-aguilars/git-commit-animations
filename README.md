@@ -73,6 +73,17 @@ Access settings via File > Preferences > Settings, then search for "Git Commit T
 - **gitCommitThemes.animationDuration** (number, default: `4300`)
   - Total duration of the animation in milliseconds
 
+## Known Limitations
+
+### Animation Display
+Due to VS Code's Extension API limitations, the animation is displayed as a temporary webview tab rather than a true floating overlay. This means:
+
+- The animation appears in a new tab in your editor area
+- It temporarily replaces or opens alongside your current view
+- The tab automatically closes after the animation completes
+
+This is a fundamental limitation of the VS Code Extension API, which does not support floating overlays or true modal dialogs with custom HTML content. The current implementation minimizes disruption by opening in your active editor column and auto-closing, but the tab behavior cannot be avoided.
+
 ## Themes
 
 ### Dark Souls - YOU DIED
