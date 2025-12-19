@@ -5,8 +5,9 @@ A VS Code extension that displays dramatic, themed animations whenever you commi
 ## Features
 
 - **Automatic Detection**: Triggers automatically when you make a Git commit
-- **Dark Souls Theme**: The iconic "YOU DIED" screen with dramatic red text and fade animations
-- **Customizable**: Configure animation duration and enable/disable the extension
+- **Multiple Themes**: Choose from handpicked selection of themes
+- **Custom Text**: Override the default text with your own message (e.g., "CHANGES COMMITTED")
+- **Fully Customizable**: Configure theme, text, animation duration, and enable/disable
 - **Test Command**: Manually trigger the animation for testing
 
 ## Installation
@@ -50,25 +51,40 @@ Access settings via File > Preferences > Settings, then search for "Git Commit T
   - Enable or disable the themed animations
 
 - **gitCommitThemes.theme** (string, default: `"darksouls"`)
-  - Select the theme (currently only Dark Souls available)
+  - Select the animation theme:
+    - `"darksouls"` - YOU DIED (red text)
+    - `"bonfire"` - BONFIRE LIT (orange text)
+
+- **gitCommitThemes.customText** (string, default: `""`)
+  - Custom text to display (leave empty to use the theme's default text)
+  - Examples: "CHANGES COMMITTED", "SAVED", "NICE WORK"
 
 - **gitCommitThemes.animationDuration** (number, default: `4300`)
   - Total duration of the animation in milliseconds
 
 ## Themes
 
-### Dark Souls
-The classic "YOU DIED" screen featuring:
-- Dark atmospheric overlay
-- Red serif text with glowing shadow effect
+### Dark Souls - YOU DIED
+The classic death screen featuring:
+- Dark red crimson text (`#8B0000`)
+- Dramatic red glow shadow effect
+- Horizontal dark band overlay (non-intrusive)
 - Smooth fade-in and fade-out animations
 - ~4 second total duration
 
+### Dark Souls - BONFIRE LIT
+A celebration screen inspired by Dark Souls bonfires:
+- Warm orange text (`#FF8C00`)
+- Fire-like amber glow effect
+- Same elegant horizontal band overlay
+- Perfect for successful commits!
+
+### Custom Text
+All themes support custom text via the `gitCommitThemes.customText` setting. Simply enter your desired text, and it will appear in the selected theme's style.
+
 ### Coming Soon
-- Skyrim
-- Minecraft
-- Undertale
-- Custom themes
+- More themes
+- More customization options
 
 ## Development
 
@@ -82,7 +98,8 @@ git-commit-themes/
 │   ├── animationManager.ts    # Webview animation controller
 │   └── themes/
 │       ├── themeInterface.ts  # Theme interface
-│       └── darkSouls.ts       # Dark Souls theme
+│       ├── darkSouls.ts       # Dark Souls "YOU DIED" theme
+│       └── bonfire.ts         # Dark Souls "BONFIRE LIT" theme
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -107,10 +124,12 @@ vsce package
 ### Adding New Themes
 
 1. Create a new file in `src/themes/` (e.g., `skyrim.ts`)
-2. Implement the `DeathScreenTheme` interface
-3. Define `getHTML()` and `getCSS()` methods
+2. Implement the `DeathScreenTheme` interface:
+   - `getHTML(customText?: string): string` - Return HTML with text support
+   - `getCSS(): string` - Return theme-specific CSS
+3. Handle custom text: Use `customText || 'DEFAULT TEXT'` in your implementation
 4. Add the theme to the switch statement in `extension.ts`
-5. Update `package.json` configuration enum
+5. Update `package.json` configuration enum and descriptions
 
 ## License
 
@@ -118,5 +137,4 @@ MIT
 
 ## Credits
 
-- Inspired by FromSoftware's Dark Souls
 - Built for fun and developer entertainment
