@@ -39,10 +39,13 @@ export class CommitDetector {
             const currentCommit = repository.state.HEAD?.commit;
 
             // Check if a new commit was made
-            if (currentCommit && currentCommit !== this.lastCommitHash) {
+            // Only trigger if we had a previous commit hash
+            if (currentCommit && this.lastCommitHash && currentCommit !== this.lastCommitHash) {
                 this.lastCommitHash = currentCommit;
                 // Trigger the animation!
                 this.onCommit();
+            } else if (currentCommit && !this.lastCommitHash) {
+                this.lastCommitHash = currentCommit;
             }
         });
 

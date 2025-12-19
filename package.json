@@ -1,6 +1,6 @@
 {
-  "name": "git-commit-themes",
-  "displayName": "Git Commit Themes",
+  "name": "git-commit-animations",
+  "displayName": "Git Commit Animations",
   "description": "Display themed animations when you commit to Git",
   "version": "0.1.0",
   "publisher": "VAAS",
@@ -22,10 +22,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/victor-aguilars/git-commit-themes"
+    "url": "https://github.com/victor-aguilars/git-commit-animations"
   },
   "bugs": {
-    "url": "https://github.com/victor-aguilars/git-commit-themes/issues"
+    "url": "https://github.com/victor-aguilars/git-commit-animations/issues"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -33,14 +33,14 @@
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Git Commit Themes",
+      "title": "Git Commit Animations",
       "properties": {
-        "gitCommitThemes.enabled": {
+        "gitCommitAnimations.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable or disable the themed animation"
         },
-        "gitCommitThemes.theme": {
+        "gitCommitAnimations.theme": {
           "type": "string",
           "default": "darksouls",
           "enum": [
@@ -53,12 +53,12 @@
           ],
           "description": "Select the commit animation theme"
         },
-        "gitCommitThemes.customText": {
+        "gitCommitAnimations.customText": {
           "type": "string",
           "default": "",
           "description": "Custom text to display (leave empty to use the theme's default text)"
         },
-        "gitCommitThemes.animationDuration": {
+        "gitCommitAnimations.animationDuration": {
           "type": "number",
           "default": 4300,
           "description": "Total duration of the animation in milliseconds"
@@ -67,8 +67,8 @@
     },
     "commands": [
       {
-        "command": "gitCommitThemes.testAnimation",
-        "title": "Git Commit Themes: Test Animation"
+        "command": "gitCommitAnimations.testAnimation",
+        "title": "Git Commit Animations: Test Animation"
       }
     ]
   },

@@ -1,4 +1,4 @@
-# Git Commit Themes
+# Git Commit Animations
 
 A VS Code extension that displays dramatic, themed animations whenever you commit changes to your Git repository.
 
@@ -51,26 +51,26 @@ The themed animation will automatically appear after a successful commit!
 ### Manual Testing
 
 Use the command palette (Ctrl+Shift+P / Cmd+Shift+P):
-- Type "Git Commit Themes: Test Animation"
+- Type "Git Commit Animations: Test Animation"
 - Press Enter to see the animation
 
 ## Configuration
 
-Access settings via File > Preferences > Settings, then search for "Git Commit Themes":
+Access settings via File > Preferences > Settings, then search for "Git Commit Animations":
 
-- **gitCommitThemes.enabled** (boolean, default: `true`)
+- **gitCommitAnimations.enabled** (boolean, default: `true`)
   - Enable or disable the themed animations
 
-- **gitCommitThemes.theme** (string, default: `"darksouls"`)
+- **gitCommitAnimations.theme** (string, default: `"darksouls"`)
   - Select the animation theme:
     - `"darksouls"` - YOU DIED (red text)
     - `"bonfire"` - BONFIRE LIT (orange text)
 
-- **gitCommitThemes.customText** (string, default: `""`)
+- **gitCommitAnimations.customText** (string, default: `""`)
   - Custom text to display (leave empty to use the theme's default text)
   - Examples: "CHANGES COMMITTED", "SAVED", "NICE WORK"
 
-- **gitCommitThemes.animationDuration** (number, default: `4300`)
+- **gitCommitAnimations.animationDuration** (number, default: `4300`)
   - Total duration of the animation in milliseconds
 
 ## Known Limitations
@@ -102,7 +102,7 @@ A celebration screen inspired by Dark Souls bonfires:
 - Perfect for successful commits!
 
 ### Custom Text
-All themes support custom text via the `gitCommitThemes.customText` setting. Simply enter your desired text, and it will appear in the selected theme's style.
+All themes support custom text via the `gitCommitAnimations.customText` setting. Simply enter your desired text, and it will appear in the selected theme's style.
 
 ### Coming Soon
 - More themes
@@ -113,7 +113,7 @@ All themes support custom text via the `gitCommitThemes.customText` setting. Sim
 ### Project Structure
 
 ```
-git-commit-themes/
+git-commit-animations/
 ├── src/
 │   ├── extension.ts           # Main entry point
 │   ├── commitDetector.ts      # Git commit detection

@@ -14,7 +14,7 @@ export class AnimationManager {
         }
 
         // Check if extension is enabled
-        const config = vscode.workspace.getConfiguration('gitCommitThemes');
+        const config = vscode.workspace.getConfiguration('gitCommitAnimations');
         const enabled = config.get<boolean>('enabled', true);
 
         if (!enabled) {
@@ -25,7 +25,7 @@ export class AnimationManager {
 
         // Create webview panel
         this.panel = vscode.window.createWebviewPanel(
-            'gitCommitThemes',
+            'gitCommitAnimations',
             'Commit Animation',
             vscode.ViewColumn.One,
             {

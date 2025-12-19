@@ -9,7 +9,7 @@ let animationManager: AnimationManager;
 let commitDetector: CommitDetector;
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('Git Commit Themes extension is now active!');
+    console.log('Git Commit Animations extension is now active!');
 
     // Initialize animation manager
     animationManager = new AnimationManager(context);
@@ -25,7 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
     commitDetector.initialize();
 
     // Register test command for manual testing
-    const testCommand = vscode.commands.registerCommand('gitCommitThemes.testAnimation', () => {
+    const testCommand = vscode.commands.registerCommand('gitCommitAnimations.testAnimation', () => {
         // Get theme dynamically for testing
         animationManager.showDeathScreen(getTheme());
     });
@@ -43,7 +43,7 @@ export function deactivate() {
 }
 
 function getTheme(): DeathScreenTheme {
-    const config = vscode.workspace.getConfiguration('gitCommitThemes');
+    const config = vscode.workspace.getConfiguration('gitCommitAnimations');
     const themeName = config.get<string>('theme', 'darksouls');
 
     switch (themeName) {
