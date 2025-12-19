@@ -35,6 +35,11 @@
           ],
           "description": "Select the commit animation theme"
         },
+        "gitCommitThemes.customText": {
+          "type": "string",
+          "default": "",
+          "description": "Custom text to display (leave empty to use the theme's default text)"
+        },
         "gitCommitThemes.animationDuration": {
           "type": "number",
           "default": 4300,

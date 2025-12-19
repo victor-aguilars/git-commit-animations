@@ -3,10 +3,11 @@ import { DeathScreenTheme } from './themeInterface';
 export class DarkSoulsTheme implements DeathScreenTheme {
     name = 'darksouls';
 
-    getHTML(): string {
+    getHTML(customText?: string): string {
+        const displayText = customText || 'YOU DIED';
         return `
             <div class="death-screen-overlay" id="deathScreen">
-                <div class="death-text">YOU DIED</div>
+                <div class="death-text">${displayText}</div>
             </div>
         `;
     }

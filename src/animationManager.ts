@@ -34,8 +34,11 @@ export class AnimationManager {
             }
         );
 
+        // Get custom text from settings
+        const customText = config.get<string>('customText', '');
+
         // Set webview HTML
-        this.panel.webview.html = this.getWebviewContent(theme);
+        this.panel.webview.html = this.getWebviewContent(theme, customText);
 
         // Get animation duration from settings
         const animationDuration = config.get<number>('animationDuration', 4300);
@@ -46,7 +49,8 @@ export class AnimationManager {
         }, animationDuration);
     }
 
-    private getWebviewContent(theme: DeathScreenTheme): string {
+    private getWebviewContent(theme: DeathScreenTheme, customText: string): string {
+        const textToDisplay = customText || undefined;
         return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +63,7 @@ export class AnimationManager {
     </style>
 </head>
 <body>
-    ${theme.getHTML()}
+    ${theme.getHTML(textToDisplay)}
     <script>
         // Start fade-out animation before webview closes
         setTimeout(() => {

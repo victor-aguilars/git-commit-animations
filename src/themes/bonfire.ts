@@ -3,10 +3,11 @@ import { DeathScreenTheme } from './themeInterface';
 export class BonfireTheme implements DeathScreenTheme {
     name = 'bonfire';
 
-    getHTML(): string {
+    getHTML(customText?: string): string {
+        const displayText = customText || 'BONFIRE LIT';
         return `
             <div class="death-screen-overlay" id="deathScreen">
-                <div class="death-text">BONFIRE LIT</div>
+                <div class="death-text">${displayText}</div>
             </div>
         `;
     }

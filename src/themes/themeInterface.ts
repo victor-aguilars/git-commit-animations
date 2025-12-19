@@ -1,5 +1,5 @@
 export interface DeathScreenTheme {
     name: string;
-    getHTML(): string;
+    getHTML(customText?: string): string;
     getCSS(): string;
 }
