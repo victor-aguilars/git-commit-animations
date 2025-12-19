@@ -1,0 +1,61 @@
+{
+  "name": "git-commit-themes",
+  "displayName": "Git Commit Themes",
+  "description": "Display dramatic themed animations when you commit to Git",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Git Commit Themes",
+      "properties": {
+        "gitCommitThemes.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable the themed animation"
+        },
+        "gitCommitThemes.theme": {
+          "type": "string",
+          "default": "darksouls",
+          "enum": [
+            "darksouls"
+          ],
+          "description": "Select the commit animation theme"
+        },
+        "gitCommitThemes.animationDuration": {
+          "type": "number",
+          "default": 4300,
+          "description": "Total duration of the animation in milliseconds"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "gitCommitThemes.testAnimation",
+        "title": "Git Commit Themes: Test Animation"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
