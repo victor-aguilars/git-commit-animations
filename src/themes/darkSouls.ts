@@ -3,15 +3,20 @@ import { DeathScreenTheme } from './themeInterface';
 export class DarkSoulsTheme implements DeathScreenTheme {
     name = 'darksouls';
 
-    getHTML(customText?: string): string {
-        const displayText = customText || 'YOU DIED';
+    getHTML(customText?: string, cmsg?: string): string {
+        const displayText: string = customText || 'YOU DIED';
+        const subtitleHtml: string = cmsg ? `<div class="commit-message">- ${cmsg} -</div>` : '';
+
         return `
             <div class="death-screen-overlay" id="deathScreen">
-                <div class="death-text">${displayText}</div>
+                <div class="death-content">
+                    <div class="death-text">${displayText}</div>
+                    ${subtitleHtml}
+                </div>
             </div>
         `;
     }
-
+    
     getCSS(): string {
         return `
             * {
@@ -23,6 +28,29 @@ export class DarkSoulsTheme implements DeathScreenTheme {
             body {
                 overflow: hidden;
                 background: transparent;
+            }
+
+            .death-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .commit-message {
+                font-family: Georgia, 'Times New Roman', serif;
+                font-size: clamp(14px, 2vw, 24px);
+                color: #8B0000;
+                text-shadow:
+                    0 0 10px rgba(220, 20, 60, 0.8),
+                    0 0 20px rgba(220, 20, 60, 0.6),
+                    0 0 30px rgba(220, 20, 60, 0.4);
+                text-align: center;
+                opacity: 0;
+                margin-top: 20px;
+                max-width: 80vw;
+                word-wrap: break-word;
+                animation: fadeInText 800ms ease-in 1200ms forwards;
             }
 
             .death-screen-overlay {

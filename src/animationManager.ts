@@ -7,7 +7,7 @@ export class AnimationManager {
 
     constructor(private context: vscode.ExtensionContext) {}
 
-    async showDeathScreen(theme: DeathScreenTheme): Promise<void> {
+    async showDeathScreen(theme: DeathScreenTheme, cmsg?: string): Promise<void> {
         // Prevent multiple animations at once
         if (this.isAnimating) {
             return;
@@ -37,11 +37,11 @@ export class AnimationManager {
         // Get custom text from settings
         const customText = config.get<string>('customText', '');
 
-        // Set webview HTML
-        this.panel.webview.html = this.getWebviewContent(theme, customText);
-
         // Get animation duration from settings
         const animationDuration = config.get<number>('animationDuration', 4300);
+
+        // Set webview HTML
+        this.panel.webview.html = this.getWebviewContent(theme, customText, animationDuration, cmsg);
 
         // Auto-close after animation completes
         setTimeout(() => {
@@ -49,21 +49,21 @@ export class AnimationManager {
         }, animationDuration);
     }
 
-    private getWebviewContent(theme: DeathScreenTheme, customText: string): string {
+    private getWebviewContent(theme: DeathScreenTheme, customText: string,  duration: number, cmsg?: string): string {
         const textToDisplay = customText || undefined;
         return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline';">
     <title>Commit Animation</title>
     <style>
         ${theme.getCSS()}
     </style>
 </head>
 <body>
-    ${theme.getHTML(textToDisplay)}
+    ${theme.getHTML(textToDisplay, cmsg)}
     <script>
         // Start fade-out animation before webview closes
         setTimeout(() => {
@@ -71,7 +71,7 @@ export class AnimationManager {
             if (deathScreen) {
                 deathScreen.classList.add('fade-out');
             }
-        }, 3500);
+        },  ${duration - 800});
     </script>
 </body>
 </html>`;
