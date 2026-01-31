@@ -15,10 +15,10 @@ export function activate(context: vscode.ExtensionContext) {
     animationManager = new AnimationManager(context);
 
     // Initialize commit detector
-    commitDetector = new CommitDetector(() => {
+    commitDetector = new CommitDetector((cmsg: string) => {
         // This callback is triggered when a commit is detected
         // Get theme dynamically so users can change it without reloading
-        animationManager.showDeathScreen(getTheme());
+        animationManager.showDeathScreen(getTheme(), cmsg);
     });
 
     // Start watching for commits
